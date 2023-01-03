@@ -1,0 +1,72 @@
+<form [formGroup]="registerFormGroup" class="p-fluid grid gap-7 w-1/3 h-1/2" (ngSubmit)="submitForm()">
+  <div class="field col-12 md:col-4">
+    <div class="p-inputgroup">
+      <span class="p-float-label">
+        <input id="name" formControlName="name" required pInputText>
+        <label for="name">Name</label>
+      </span>
+
+      <span class="p-float-label">
+        <input id="surname" formControlName="surname" required pInputText>
+        <label for="surname">Surname</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="field col-12 md:col-4">
+    <span class="p-float-label">
+      <p-inputNumber id="age" formControlName="age" [showButtons]="true" [min]="minAge" [max]="maxAge"></p-inputNumber>
+      <label for="age">Age</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-4">
+    <span class="p-float-label">
+      <input id="profile-picture" type="url" formControlName="profilePicture" required pInputText>
+      <label for="profile-picture">URL Profile Picture</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-4">
+    <span class="p-float-label">
+      <textarea id="description" formControlName="description" [rows]="2" [autoResize]="true" required
+                pInputTextarea></textarea>
+      <label for="description">Description</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-4">
+    <span class="p-float-label">
+      <input id="email" type="email" autocomplete="username" formControlName="email" required pInputText>
+      <label for="email">Email</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-4">
+    <div class="grid gap-7 md:grid-cols-2 md:gap-0">
+      <span class="p-float-label">
+        <p-password id="password" type="password" formControlName="password" [toggleMask]="true" required>
+        </p-password>
+        <label for="password">Password</label>
+      </span>
+
+      <span class="p-float-label">
+        <p-password id="password-confirmation" class="rounded-r-none" type="password"
+                    formControlName="passwordConfirmation" [feedback]="false" required>
+        </p-password>
+        <label for="password-confirmation">Password Confirmation</label>
+      </span>
+    </div>
+  </div>
+
+  <span class="grid md:grid-col-3 p-buttonset">
+    <p-confirmPopup></p-confirmPopup>
+    <button type="submit" pButton pRipple label="Submit" icon="pi pi-check" iconPos="right"></button>
+
+    <button type="button" pButton pRipple label="Reset" class="p-button-warning"
+            icon="pi pi-refresh" iconPos="right" (click)="resetForm()"></button>
+
+    <button type="button" pButton pRipple label="Exit" class="p-button-danger" icon="pi pi-times" iconPos="right"
+            (click)="exitForm($event)"></button>
+  </span>
+</form>

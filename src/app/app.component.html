@@ -1,0 +1,9 @@
+<p-toast position="bottom-left"></p-toast>
+
+<user-register *ngIf="showForm" [user]="userForm" (onExit)="switchShowForm()"
+               (onSubmit)="onFormSubmit($event)"></user-register>
+
+<div class="card m-4">
+  <user-list *ngIf="!showForm" [users]="users" (onUserClick)="editUser($event)"
+             (onNewUserClick)="switchShowForm()"></user-list>
+</div>

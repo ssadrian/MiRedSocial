@@ -28,9 +28,14 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# SASS / SCSS
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 # Miscellaneous
 /.angular/cache
-.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log

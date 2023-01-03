@@ -1,0 +1,7 @@
+:host {
+  @apply absolute;
+  @apply flex justify-center items-center;
+  @apply w-full h-full;
+}
+
+/*# sourceMappingURL=user-register.component.css.map */
