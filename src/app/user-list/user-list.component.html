@@ -1,7 +1,9 @@
-<p-dataView [value]="users" [paginator]="true" [rows]="7" filterBy="name" layout="list">
+<p-dataView #dv [value]="users" [paginator]="true" [rows]="7" filterBy="name,surname" layout="list">
   <ng-template pTemplate="header">
     <div class="flex justify-between">
-      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      <input type="search" pInputText placeholder="Search by name"
+             (input)="dv.filter($any($event.target).value, 'contains')">
+
       <button pButton pRipple icon="pi pi-user-plus" class="p-button-rounded p-button-outlined"
               (click)="addNewUser()">
         <p-badge [value]="totalUsers.toString()"></p-badge>
@@ -10,29 +12,14 @@
   </ng-template>
 
   <ng-template let-user pTemplate="listItem">
-    <div class="col-12 hover:cursor-pointer" pDraggable="dd" (click)="modifyUser(user)">
-      <div class="user-list-item">
+    <div class="col-12 hover:cursor-pointer" (click)="modifyUser(user)">
+      <div class="flex items-center p-4 w-full user-list-item">
         <img [src]="user.profilePicture" [alt]="user.name + ' ' + user.surname"/>
 
-        <div class="user-list-detail">
-          <div class="username" [innerText]="user.name + ' ' + user.surname"></div>
-          <div class="user-description">{{ user.description }}</div>
+        <div class="flex-1 user-list-detail">
+          <div class="text-2xl font-bold username" [innerText]="user.name + ' ' + user.surname"></div>
+          <div class="mb-4 user-description">{{ user.description }}</div>
         </div>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template let-user pTemplate="gridItem">
-    <div class="col-12 md:col-4">
-      <div class="user-grid-item card">
-        <div class="user-grid-item-content">
-          <img [src]="user.profilePicture" [alt]="user.name + ' ' + user.surname"/>
-
-          <div class="username">{{ user.name }}</div>
-          <div class="user-description">{{ user.description }}</div>
-        </div>
-
-        <div class="user-grid-item-bottom"></div>
       </div>
     </div>
   </ng-template>
