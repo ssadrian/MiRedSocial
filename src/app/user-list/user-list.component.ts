@@ -24,9 +24,4 @@ export class UserListComponent implements OnInit {
   addNewUser(): void {
     this.onNewUserClick.emit();
   }
-
-  test(value: any) {
-    console.log(value);
-    console.log((value as HTMLInputElement).value);
-  }
 }

@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
 
   switchShowForm(): void {
     this.showForm = !this.showForm;
+    this.userForm = undefined;
   }
 
   onFormSubmit(user: IUser): void {
